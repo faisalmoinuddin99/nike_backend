@@ -1,0 +1,19 @@
+spring:
+  output:
+    ansi:
+      enabled: ALWAYS
+  application:
+    name: nike_backend
+  datasource:
+    url: jdbc:postgresql://localhost:5432/nike_db  # Replace "my_database" with your actual database name
+    username: root
+    password: root
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    #    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 8080

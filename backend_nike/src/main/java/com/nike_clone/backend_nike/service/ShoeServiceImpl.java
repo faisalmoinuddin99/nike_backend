@@ -3,11 +3,13 @@ package com.nike_clone.backend_nike.service;
 import com.nike_clone.backend_nike.model.Shoe;
 import com.nike_clone.backend_nike.repository.ShoeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+@Service
 public class ShoeServiceImpl implements ShoeService {
 
     @Autowired

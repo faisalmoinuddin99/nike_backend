@@ -26,9 +26,19 @@ public class ShoeController {
         return service.getAllShoes();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public Optional<Shoe> getShoeById(@PathVariable UUID id) {
-        return service.getSingleShoeById(id);
+        return Optional.ofNullable(service.getSingleShoeById(id).orElse(null));
+    }
+
+    @PutMapping("/id/{id}")
+    public Shoe updateShoeById(@PathVariable UUID id, @RequestBody Shoe shoe) {
+        return service.updateShoeById(id, shoe);
+    }
+
+    @DeleteMapping("/id/{id}")
+    public Boolean deleteShoeById(@PathVariable UUID id) {
+        return service.deleteShoeById(id);
     }
 
 }

@@ -18,4 +18,8 @@ public interface ShoeService {
 
     public Optional<Shoe> getSingleShoeById(UUID shoeId) ;
     public List<Shoe> getAllShoes() ;
+
+    public Shoe updateShoeById(UUID shoeId, Shoe editiedShoe) ;
+
+    public Boolean deleteShoeById(UUID shoeId) ;
 }

@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 @Service
 public class ShoeServiceImpl implements ShoeService {
@@ -34,4 +37,22 @@ public class ShoeServiceImpl implements ShoeService {
     public List<Shoe> getAllShoes() {
         return shoeRepository.findAll();
     }
+
+    @Override
+    public Shoe updateShoeById(UUID shoeId, Shoe editiedShoe) {
+        return shoeRepository.save(editiedShoe);
+    }
+
+    @Override
+    public Boolean deleteShoeById(UUID shoeId) {
+
+        if (shoeRepository.existsById(shoeId)) {
+            Consumer<UUID> deleteShoeByID = x -> shoeRepository.deleteById(x);
+            deleteShoeByID.accept(shoeId);
+            return true;
+        }
+        return false;
+    }
+
+
 }
